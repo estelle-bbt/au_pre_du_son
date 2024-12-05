@@ -20,3 +20,5 @@ Imports:
   visNetwork,
   dplyr,
   lubridate
+Depends:
+  ggplot2
