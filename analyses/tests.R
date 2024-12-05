@@ -5,8 +5,6 @@ data_raw <- readr::read_csv("data/data_festival_au_pre_du_son.csv")
 
 ## #2: formatting column names ----
 data <- data_raw |> 
-  # remove raw with only NA
-  dplyr::filter(!dplyr::if_all(everything(), is.na)) 
   # remove uppercase
   dplyr::rename_with(~ gsub("^([A-Z])", "\\L\\1", ., perl = TRUE)) |>
   # remove accent
