@@ -1,9 +1,8 @@
-# [**Au pré du son**](https://www.festival-aupreduson.fr/)
+#[Au pré du son](https://www.festival-aupreduson.fr/)
 
 ## Introduction
 
-This project aim at assessing the typical profile of the public attending the 
-festival [**Au pré du son**](https://www.festival-aupreduson.fr/). 
+This project aim at assessing the typical profile of the public attending the festival [**Au pré du son**](https://www.festival-aupreduson.fr/).
 
 The ultimate goal is to improve the festival communication and attract more young local people.
 
@@ -12,4 +11,3 @@ The ultimate goal is to improve the festival communication and attract more youn
 ## Data
 
 We will use data collected by the festival organizers from 2017 to 2024.
-
