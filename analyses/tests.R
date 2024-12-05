@@ -69,7 +69,7 @@ data_with_age <- data_filter |>
 
 ## 4: longering data for presence/absence editions ----
 data_longer <- data_with_age |>
-  tidyr::pivot_longer(starts_with("edition_"),names_prefix="edition_",names_to="edition",values_to="presence")
+  tidyr::pivot_longer(starts_with("edition"),names_prefix="edition",names_to="edition",values_to="presence")
 
 ## 5: get the common theme ----
 common_theme <- theme(axis.text.x = element_text(size=10,angle=45,hjust=1),
@@ -114,3 +114,41 @@ data_summarized |>
   ylab("Edition number") +
   theme(legend.position = "top")
 
+## 9: summarized data to get percentage region per edition ----
+
+data_region <- data_longer |>
+  dplyr::mutate(region = dplyr::case_when(
+    is.na(departement) ~ NA,
+    departement == "35" ~ "Ille-et-Vilaine",
+    departement %in% c("22","49","56") ~ "Bretagne-autres",
+    departement %in% c("44","49","53","50") ~ "Bretagne-limitrophe",
+    TRUE ~ "France-autres"
+  ))
+
+data_summarized_departement <- data_region |>
+  dplyr::filter(presence==1&!is.na(region)) |>
+  dplyr::group_by(edition,region) |>
+  dplyr::summarize(nb_people=dplyr::n()) |>
+  dplyr::left_join(data_longer |>
+                     dplyr::filter(presence==1&!is.na(departement)) |>
+                     dplyr::group_by(edition) |>
+                     dplyr::summarize(nb_total_people=dplyr::n())) |>
+  dplyr::mutate(percent = nb_people/nb_total_people)
+
+## 10: get the plot for the data above ----
+data_summarized_departement |>
+  ggplot(aes(x = factor(edition), y = percent, fill = region)) +
+  geom_bar(stat = "identity", position = "dodge") +
+  common_theme +
+  xlab("Count") +
+  ylab("Edition number") +
+  theme(legend.position = "top")
+
+## 11: linear model to understand if age is different between edition and region
+
+data_only_presence <- data_region |>
+  dplyr::filter(presence==1)
+
+model_age <- stats::lm(data=data_only_presence, age_today ~ edition+region)
+car::Anova(model_age)
+summary(model_age) 
