@@ -71,6 +71,7 @@ data_with_age <- data_filter |>
 data_longer <- data_with_age |>
   tidyr::pivot_longer(starts_with("edition_"),names_prefix="edition_",names_to="edition",values_to="presence")
 
+## 5: get the common theme ----
 common_theme <- theme(axis.text.x = element_text(size=10,angle=45,hjust=1),
                       axis.text.y = element_text(size=8,margin = margin(t = 0, r = 5, b = 0, l = 5)),
                       legend.position = "none",
@@ -83,6 +84,7 @@ common_theme <- theme(axis.text.x = element_text(size=10,angle=45,hjust=1),
                       panel.background = element_rect(colour="black", fill="white",linewidth=1),
                       axis.title.y = element_text(size=10))
 
+## 6: mean and sd age per edition ----
 data_longer |>
   dplyr::filter(presence==1) |>
   ggplot(aes(x=edition,y=age_today)) +
@@ -92,15 +94,7 @@ data_longer |>
   stat_summary(fun.data = mean_sdl, fun.args = list(mult = 1), aes(color=edition), geom = "errorbar",width=0,linewidth=2,lineend="round",position=position_dodge(0.5)) +
   stat_summary(fun = mean, aes(fill=edition),geom = "point",size=3,shape=21,color="white",stroke=1,fill="gray30")
 
-data_longer |>
-  dplyr::filter(presence==1) |>
-  ggplot(aes(y=edition)) +
-  common_theme +
-  xlab("Count") +
-  ylab("Edition number") +
-  geom_bar(aes(fill = age_class), position = position_stack(reverse = TRUE)) +
-  theme(legend.position = "top")
-
+## 7: summarized data to get percentage class age per edition ----
 data_summarized <- data_longer |>
   dplyr::filter(presence==1) |>
   dplyr::group_by(edition,age_class) |>
@@ -111,10 +105,12 @@ data_summarized <- data_longer |>
                      dplyr::summarize(nb_total_people=dplyr::n())) |>
   dplyr::mutate(percent = nb_people/nb_total_people)
 
+## 8: get the plot for the data above ----
 data_summarized |>
-  ggplot(aes(y=edition)) +
+  ggplot(aes(x = factor(edition), y = percent, fill = age_class)) +
+  geom_bar(stat = "identity", position = "dodge") +
   common_theme +
   xlab("Count") +
   ylab("Edition number") +
-  geom_bar(aes(fill = age_class), position = position_stack(reverse = TRUE)) +
   theme(legend.position = "top")
+
