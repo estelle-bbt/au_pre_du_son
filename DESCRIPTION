@@ -1,0 +1,17 @@
+Package: aupre_du_son
+Type: Package
+Title: Au pre du son festival public profile
+Version: 0.0.0.9000
+Authors@R: c(
+    person(given   = "Jordi",
+           family  = "Salmona",
+           role    = c("aut", "cre", "cph"),
+           email   = "jordi.salmona@ird.fr",
+           comment = c(ORCID = "0000-0002-1950-5805")))
+Description: This project aims at evaluating the profile of the public attending the festival "au pre du son"  
+URL: https://github.com/jordisalmona/aupre_du_son
+BugReports: https://github.com/jordisalmona/aupre_du_son/issues
+License: GPL-2
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.3.2
