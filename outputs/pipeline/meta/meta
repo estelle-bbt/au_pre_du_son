@@ -1,0 +1,11 @@
+name|type|data|command|depend|seed|path|time|size|bytes|format|repository|iteration|parent|children|seconds|warnings|error
+clean_data_1|function|d725f0d32da4fff8|||||||||||||||
+clean_data_2|function|c3d9f2fc4c8bb716|||||||||||||||
+clean_data_3|function|fdca5c4cf5db6a74|||||||||||||||
+data_1|stem|082f32a04295fd8e|61f861d20166e475|bb0ca8192235fa52|-362703061||t20062.657379048s|91c66a02a1545687|51153|rds|local|vector|||0.11||
+data_2|stem|cc0ffe4e170fc458|e375ce59b8c7bac0|ca997c9e7626ccf7|-1497429550||t20062.6605129132s|727900fb11f98c04|50100|rds|local|vector|||0.15||
+data_3|stem|c2328d9f66cfa5ac|f0da76c444561b3c|7518980db72707ce|1006259999||t20062.6675164677s|eb7607b8f1708283|45397|rds|local|vector|||0.09||
+data_age|stem|49759e1bce9d90c2|61bb02e93a5f792b|7277c3866a9ba163|-277702094||t20062.6816990901s|f534f8a6ade624c7|47659|rds|local|vector|||0.37|There was 1 warning in dplyrmutate.ℹ In argument year_of_birth   lubridateyearlubridatedmydatedenaissance.Caused by warning  1 failed to parse.|
+raw_data|stem|d5829ad0a5417d2c|4c9e329be29cec7a|7613a49e47e2bd9b|-1101284392||t20062.6505622723s|bb1631530469b7b9|51199|rds|local|vector|||0||
+raw_data_file|stem|b90c85eed12dd5aa|e05250bf4fcdb55c|2c530c1562a7fbd1|-669943514|D:/jordi/courses-formations-followed/Recherche_reproductible_en_ecologie_numerique_2024/aupre_du_son/data/data_festival_au_pre_du_son.csv|t20062.5951339775s|ede61c9f05f445ca|223743|file|local|vector|||0.07||
+transform_age_format|function|9f77fe9774a0c2b7|||||||||||||||
