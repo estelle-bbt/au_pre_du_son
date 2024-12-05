@@ -3,3 +3,5 @@
 ^R$
 ^outputs$
 ^analyses$
+^.*\.Rproj$
+^\.Rproj\.user$
