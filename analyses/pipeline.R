@@ -16,7 +16,13 @@ list(
 
   # Transform the data again
   ,tar_target(data_2, clean_data_2(data_1))
+
+  # Transform the data again and again
+  ,tar_target(data_3, clean_data_3(data_2))
   
+  # Transform the data again and again
+  ,tar_target(data_age, transform_age_format(data_3))
+
   # Explore the data (custom function)
   #tar_target(hist, hist(data$Ozone)), 
   
