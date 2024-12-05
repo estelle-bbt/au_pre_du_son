@@ -59,9 +59,62 @@ data_filter <- data_clean |>
 
 data_with_age <- data_filter |> 
   dplyr::mutate(year_of_birth = lubridate::year(lubridate::dmy(date_de_naissance))) |>
-  dplyr::mutate(age_today = 2024-year_of_birth)
+  dplyr::mutate(age_today = 2024-year_of_birth) |>
+  dplyr::mutate(age_class = dplyr::case_when(
+    age_today <= 25 ~ "25 or less",
+    age_today <= 35 ~ "between 25 and 35",
+    age_today <= 50 ~ "between 35 and 50",
+    TRUE ~ "more than 50"
+  ))
 
 ## 4: longering data for presence/absence editions ----
-data_longer <- data_clean |>
+data_longer <- data_with_age |>
   tidyr::pivot_longer(starts_with("edition_"),names_prefix="edition_",names_to="edition",values_to="presence")
 
+common_theme <- theme(axis.text.x = element_text(size=10,angle=45,hjust=1),
+                      axis.text.y = element_text(size=8,margin = margin(t = 0, r = 5, b = 0, l = 5)),
+                      legend.position = "none",
+                      plot.background = element_blank(),
+                      panel.grid.major=element_line(color="gray90"),
+                      panel.grid.major.x = element_blank() ,
+                      plot.margin = margin(t=5, r=0, b=0, l=0),
+                      strip.background = element_rect(colour="black", 
+                                                      linewidth=1.5, linetype="solid"),
+                      panel.background = element_rect(colour="black", fill="white",linewidth=1),
+                      axis.title.y = element_text(size=10))
+
+data_longer |>
+  dplyr::filter(presence==1) |>
+  ggplot(aes(x=edition,y=age_today)) +
+  common_theme +
+  xlab("Edition number") +
+  ylab("Age today") +
+  stat_summary(fun.data = mean_sdl, fun.args = list(mult = 1), aes(color=edition), geom = "errorbar",width=0,linewidth=2,lineend="round",position=position_dodge(0.5)) +
+  stat_summary(fun = mean, aes(fill=edition),geom = "point",size=3,shape=21,color="white",stroke=1,fill="gray30")
+
+data_longer |>
+  dplyr::filter(presence==1) |>
+  ggplot(aes(y=edition)) +
+  common_theme +
+  xlab("Count") +
+  ylab("Edition number") +
+  geom_bar(aes(fill = age_class), position = position_stack(reverse = TRUE)) +
+  theme(legend.position = "top")
+
+data_summarized <- data_longer |>
+  dplyr::filter(presence==1) |>
+  dplyr::group_by(edition,age_class) |>
+  dplyr::summarize(nb_people=dplyr::n()) |>
+  dplyr::left_join(data_longer |>
+                     dplyr::filter(presence==1) |>
+                     dplyr::group_by(edition) |>
+                     dplyr::summarize(nb_total_people=dplyr::n())) |>
+  dplyr::mutate(percent = nb_people/nb_total_people)
+
+data_summarized |>
+  ggplot(aes(y=edition)) +
+  common_theme +
+  xlab("Count") +
+  ylab("Edition number") +
+  geom_bar(aes(fill = age_class), position = position_stack(reverse = TRUE)) +
+  theme(legend.position = "top")
