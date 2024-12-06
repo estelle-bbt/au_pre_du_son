@@ -19,4 +19,7 @@ Imports:
   targets,
   visNetwork,
   dplyr,
-  lubridate
+  lubridate,
+  Hmisc
+Depends:
+  ggplot2

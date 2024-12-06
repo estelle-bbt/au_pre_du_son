@@ -1,6 +1,7 @@
 library(targets)
-
+library(ggplot2)
 tar_source()
+#source("R/get_common_theme.R")
 
 list(
   # Make the workflow depends on the raw data file
@@ -20,12 +21,16 @@ list(
   # Transform the data again and again
   ,tar_target(data_3, clean_data_3(data_2))
   
-  # Transform the data again and again
+  # Transform age data
   ,tar_target(data_age, transform_age_format(data_3))
 
-  # Explore the data (custom function)
-  #tar_target(hist, hist(data$Ozone)), 
+  # Longer data 
+  ,tar_target(data_long, longer_data(data_age))
   
-  # Model the data
-  #tar_target(fit, lm(Ozone ~ Wind + Temp, data))
+  # Plot mean age per edition
+  ,tar_target(plot_map, mean_age_per_edition(data_long), format = "file")
+  
+  # Percent age per edition
+  #,tar_target(data_mape, percent_ageclass(data_long))
+  
 )

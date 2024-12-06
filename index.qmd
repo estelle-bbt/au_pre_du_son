@@ -21,7 +21,7 @@ We visualize how the age of the participants changed between editions using the 
 
 ![View of Al Biruni's right profile](https://upload.wikimedia.org/wikipedia/commons/4/42/Al_biruni_28-02-2010.jpg){#fig-al-biruni fig-width="45%" fig-align="center"}
 
-```{r}
+```{r,echo=FALSE}
 # targets::tar_load(plot_ecoregions)
 # 
 # plot_ecoregions
