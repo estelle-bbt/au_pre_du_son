@@ -8,7 +8,7 @@ mean_age_per_edition <- function(data_long) {
 
   
   #message("here")
-  plott_mape <-  ggplot(plot_data, aes(x=edition,y=age_today)) +
+  plott_mape <-  ggplot(plot_data, aes(x=edition,y=age_at_edition)) +
     xlab("Edition number") +
     ylab("Age today") +
     stat_summary(fun.data = mean_sdl, fun.args = list(mult = 1),
