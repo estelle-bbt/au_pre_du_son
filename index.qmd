@@ -24,16 +24,17 @@ We visualize how the age of the participants changed between editions using the 
 
 We plot the mean ± standard-deviation of participants age according to the edition @fig-age.
 
-![Age of the participants](outputs/mean_age_per_edition.png){#fig-age}
+![Age of the participants](outputs/mean_age_per_edition.png){#fig-age fig-width="45%"}
+
+![Age of the participants with percentage](outputs/percent_ageclass.png){#fig-age-percent fig-width="45%"}
 
 ### Origin of the participants
 
 We visualize how the origin of the participants changed between editions.
 
-
-
-```{r,warnings=FALSE}
-# targets::tar_load("plott_mape")
-
+![Region](outputs/percent_region.png){#fig-region fig-width="45%"}
+Our analyses:
+```{r,echo=FALSE}
+targets::tar_visnetwork()
 
 ```

@@ -20,40 +20,6 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for syntax highlighting */
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
 /* CSS for citations */
 div.csl-bib-body { }
 div.csl-entry {
@@ -86,6 +52,11 @@ div.csl-indent {
 <script src="index_files/libs/bootstrap/bootstrap.min.js"></script>
 <link href="index_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="index_files/libs/bootstrap/bootstrap-e1408896bd1e66d484c21809450193da.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="index_files/libs/htmltools-fill-0.5.8.1/fill.css" rel="stylesheet">
+<script src="index_files/libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
+<link href="index_files/libs/vis-9.1.0/vis-network.min.css" rel="stylesheet">
+<script src="index_files/libs/vis-9.1.0/vis-network.min.js"></script>
+<script src="index_files/libs/visNetwork-binding-2.1.2/visNetwork.js"></script>
 
 
 <link rel="stylesheet" href="styles/styles.css">
@@ -137,13 +108,23 @@ Figure&nbsp;1: View of Al Biruni’s right profile
 </figure>
 </div>
 <p>We plot the mean ± standard-deviation of participants age according to the edition <a href="#fig-age" class="quarto-xref">Figure&nbsp;2</a>.</p>
-<div id="fig-age" class="quarto-float quarto-figure quarto-figure-center anchored">
+<div id="fig-age" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-width="45%">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-age-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="outputs/mean_age_per_edition.png" class="img-fluid figure-img">
+<img src="outputs/mean_age_per_edition.png" class="img-fluid figure-img" data-fig-width="45%">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-age-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;2: Age of the participants
+</figcaption>
+</figure>
+</div>
+<div id="fig-age-percent" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-width="45%">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-age-percent-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="outputs/percent_ageclass.png" class="img-fluid figure-img" data-fig-width="45%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-age-percent-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3: Age of the participants with percentage
 </figcaption>
 </figure>
 </div>
@@ -151,8 +132,12 @@ Figure&nbsp;2: Age of the participants
 <section id="origin-of-the-participants" class="level3">
 <h3 class="anchored" data-anchor-id="origin-of-the-participants">Origin of the participants</h3>
 <p>We visualize how the origin of the participants changed between editions.</p>
-<div class="cell" data-warnings="false">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># targets::tar_load("plott_mape")</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><img src="outputs/percent_region.png" id="fig-region" class="img-fluid" data-fig-width="45%" alt="Region"> Our analyses:</p>
+<div class="cell">
+<div class="cell-output-display">
+<div class="visNetwork html-widget html-fill-item" id="htmlwidget-fc7d685f0f507d0bf53b" style="width:100%;height:464px;"></div>
+<script type="application/json" data-for="htmlwidget-fc7d685f0f507d0bf53b">{"x":{"nodes":{"name":["data_1","data_2","data_3","data_age","data_long","data_mape","data_region","index","plott_mape","raw_data","raw_data_file","sum_lm","get_common_theme","clean_data_1","clean_data_2","modelit","clean_data_3","transform_age_format","longer_data","mean_age_per_edition","percent_region","percent_ageclass"],"type":["stem","stem","stem","stem","stem","stem","stem","stem","stem","stem","stem","stem","function","function","function","function","function","function","function","function","function","function"],"description":[null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null],"status":["uptodate","uptodate","uptodate","uptodate","uptodate","uptodate","uptodate","outdated","uptodate","uptodate","uptodate","uptodate","uptodate","uptodate","uptodate","uptodate","uptodate","uptodate","uptodate","uptodate","uptodate","uptodate"],"seconds":[0.018,0.023,0.002,0.241,0.065,0.276,0.397,2.799,0.43,0.004,0.005,0.08599999999999999,null,null,null,null,null,null,null,null,null,null],"bytes":[51153,50100,45397,48314,67252,652,68934,1968658,49917,51199,220644,169000,null,null,null,null,null,null,null,null,null,null],"branches":[null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null],"label":["data_1","data_2","data_3","data_age","data_long","data_mape","data_region","index","plott_mape","raw_data","raw_data_file","sum_lm","get_common_theme","clean_data_1","clean_data_2","modelit","clean_data_3","transform_age_format","longer_data","mean_age_per_edition","percent_region","percent_ageclass"],"color":["#354823","#354823","#354823","#354823","#354823","#354823","#354823","#78B7C5","#354823","#354823","#354823","#354823","#354823","#354823","#354823","#354823","#354823","#354823","#354823","#354823","#354823","#354823"],"id":["data_1","data_2","data_3","data_age","data_long","data_mape","data_region","index","plott_mape","raw_data","raw_data_file","sum_lm","get_common_theme","clean_data_1","clean_data_2","modelit","clean_data_3","transform_age_format","longer_data","mean_age_per_edition","percent_region","percent_ageclass"],"level":[3,4,5,6,7,8,8,0,8,2,1,9,1,1,1,1,1,1,1,2,2,2],"shape":["dot","dot","dot","dot","dot","dot","dot","dot","dot","dot","dot","dot","triangle","triangle","triangle","triangle","triangle","triangle","triangle","triangle","triangle","triangle"]},"edges":{"from":["get_common_theme","get_common_theme","get_common_theme","raw_data_file","clean_data_1","raw_data","data_region","modelit","data_long","mean_age_per_edition","clean_data_2","data_1","data_long","percent_ageclass","clean_data_3","data_2","data_3","transform_age_format","data_long","percent_region","data_age","longer_data"],"to":["mean_age_per_edition","percent_region","percent_ageclass","raw_data","data_1","data_1","sum_lm","sum_lm","plott_mape","plott_mape","data_2","data_2","data_mape","data_mape","data_3","data_3","data_age","data_age","data_region","data_region","data_long","data_long"],"arrows":["to","to","to","to","to","to","to","to","to","to","to","to","to","to","to","to","to","to","to","to","to","to"]},"nodesToDataframe":true,"edgesToDataframe":true,"options":{"width":"100%","height":"100%","nodes":{"shape":"dot","physics":false},"manipulation":{"enabled":false},"edges":{"smooth":{"type":"cubicBezier","forceDirection":"horizontal"}},"physics":{"stabilization":false},"interaction":{"zoomSpeed":1},"layout":{"hierarchical":{"enabled":true,"direction":"LR"}}},"groups":null,"width":null,"height":null,"idselection":{"enabled":false,"style":"width: 150px; height: 26px","useLabels":true,"main":"Select by id"},"byselection":{"enabled":false,"style":"width: 150px; height: 26px","multiple":false,"hideColor":"rgba(200,200,200,0.5)","highlight":false},"main":{"text":"","style":"font-family:Georgia, Times New Roman, Times, serif;font-weight:bold;font-size:20px;text-align:center;"},"submain":null,"footer":null,"background":"rgba(0, 0, 0, 0)","highlight":{"enabled":true,"hoverNearest":false,"degree":{"from":1,"to":1},"algorithm":"hierarchical","hideColor":"rgba(200,200,200,0.5)","labelOnly":true},"collapse":{"enabled":true,"fit":false,"resetHighlight":true,"clusterOptions":null,"keepCoord":true,"labelSuffix":"(cluster)"},"legend":{"width":0.2,"useGroups":false,"position":"right","ncol":1,"stepX":100,"stepY":100,"zoom":true,"nodes":{"label":["Up to date","Outdated","Stem","Function"],"color":["#354823","#78B7C5","#899DA4","#899DA4"],"shape":["dot","dot","dot","triangle"]},"nodesToDataframe":true},"tooltipStay":300,"tooltipStyle":"position: fixed;visibility:hidden;padding: 5px;white-space: nowrap;font-family: verdana;font-size:14px;font-color:#000000;background-color: #f5f4ed;-moz-border-radius: 3px;-webkit-border-radius: 3px;border-radius: 3px;border: 1px solid #808074;box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);"},"evals":[],"jsHooks":[]}</script>
+</div>
 </div>
 
 </section>
