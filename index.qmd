@@ -13,16 +13,15 @@ This project aim at assessing the typical profile of the public attending the fe
 
 {{< video https://www.youtube.com/watch?v=ZL5gs7tBQMs>}}
 
-
 ## Analyses
 
 ### Age of the participants
 
-We visualize how the age of the participants changed between editions using the package [`ggplot2`](https://ggplot2.tidyverse.org/) [@wickham2016]. To do so, we estimated the mean and the standard deviation per edition. Note that the persian mathematician and astronomer Al Biruni was one of the first to use a concept close to the arithmetic mean to correct astronomical observations [@al-birun2024], and he was really proud of this (@fig-al-biruni). 
+We visualize how the age of the participants changed between editions using the package [`ggplot2`](https://ggplot2.tidyverse.org/) [@wickham2016]. To do so, we estimated the mean and the standard deviation per edition. Note that the persian mathematician and astronomer Al Biruni was one of the first to use a concept close to the arithmetic mean to correct astronomical observations [@al-birun2024], and he was really proud of this (@fig-al-biruni).
 
 ![View of Al Biruni's right profile](https://upload.wikimedia.org/wikipedia/commons/4/42/Al_biruni_28-02-2010.jpg){#fig-al-biruni fig-width="45%" fig-align="center"}
 
-We plot the mean ± standard-deviation of participants age according to the edition @fig-age.
+We plot the mean ± standard-deviation of participants age according to the edition (@fig-age, @fig-age-percent).
 
 ![Age of the participants](outputs/mean_age_per_edition.png){#fig-age fig-width="45%"}
 
@@ -30,10 +29,10 @@ We plot the mean ± standard-deviation of participants age according to the edit
 
 ### Origin of the participants
 
-We visualize how the origin of the participants changed between editions.
+We visualize how the origin of the participants changed between editions (@fig-regions).
 
-![Region](outputs/percent_region.png){#fig-region fig-width="45%"}
-Our analyses:
+![Region](outputs/percent_region.png){#fig-region fig-width="45%"} Our analyses:
+
 ```{r,echo=FALSE}
 targets::tar_visnetwork()
 
