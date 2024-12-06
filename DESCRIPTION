@@ -20,6 +20,7 @@ Imports:
   visNetwork,
   dplyr,
   lubridate,
-  Hmisc
+  Hmisc,
+  car
 Depends:
   ggplot2
