@@ -1,7 +1,7 @@
 get_common_theme <- function() {
 
-library(ggplot2)    
-common_theme <- ggplot2::theme(axis.text.x = element_text(size=10,angle=45,hjust=1),
+#library(ggplot2)    
+common_theme <- theme(axis.text.x = element_text(size=10,angle=45,hjust=1),
                         axis.text.y = element_text(size=8,margin = margin(t = 0, r = 5, b = 0, l = 5)),
                         legend.position = "none",
                         plot.background = element_blank(),

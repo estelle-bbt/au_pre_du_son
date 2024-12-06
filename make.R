@@ -1,4 +1,3 @@
-
 # ---- packages
 #devtools::install_deps()
 
@@ -10,6 +9,4 @@ targets::tar_config_set(
 
 targets::tar_visnetwork()
 targets::tar_make()
-
-
 
