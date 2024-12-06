@@ -33,4 +33,6 @@ list(
   # Percent age per edition
   #,tar_target(data_mape, percent_ageclass(data_long))
   
+  # Quarto doc
+  ,tarchetypes::tar_quarto(index, "index.qmd") 
 )

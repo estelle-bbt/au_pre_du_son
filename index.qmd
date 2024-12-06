@@ -11,7 +11,8 @@ csl: styles/proceedings-of-the-royal-society-b.csl
 
 This project aim at assessing the typical profile of the public attending the festival [**Au pré du son**](https://www.festival-aupreduson.fr/). The ultimate goal is to improve the festival communication and attract more young local people.
 
-{{< video https://www.youtube.com/watch?v=ZL5gs7tBQMs&ab_channel=ChangeonsenFestiValAuPr%C3%A9duSon >}}
+{{< video https://www.youtube.com/watch?v=ZL5gs7tBQMs>}}
+
 
 ## Analyses
 
@@ -21,12 +22,18 @@ We visualize how the age of the participants changed between editions using the 
 
 ![View of Al Biruni's right profile](https://upload.wikimedia.org/wikipedia/commons/4/42/Al_biruni_28-02-2010.jpg){#fig-al-biruni fig-width="45%" fig-align="center"}
 
-```{r,echo=FALSE}
-# targets::tar_load(plot_ecoregions)
-# 
-# plot_ecoregions
-```
+We plot the mean ± standard-deviation of participants age according to the edition @fig-age.
+
+![Age of the participants](outputs/mean_age_per_edition.png){#fig-age}
 
 ### Origin of the participants
 
 We visualize how the origin of the participants changed between editions.
+
+
+
+```{r,warnings=FALSE}
+# targets::tar_load("plott_mape")
+
+
+```
