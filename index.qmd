@@ -2,6 +2,9 @@
 title: "Au Pré du Son"
 format: html
 editor: visual
+css: styles/styles.css
+bibliography: references.bib
+csl: styles/proceedings-of-the-royal-society-b.csl
 ---
 
 ## Goal
@@ -14,7 +17,9 @@ This project aim at assessing the typical profile of the public attending the fe
 
 ### Age of the participants
 
-We visualize how the age of the participants changed between editions. 
+We visualize how the age of the participants changed between editions using the package [`ggplot2`](https://ggplot2.tidyverse.org/) [@wickham2016]. To do so, we estimated the mean and the standard deviation per edition. Note that the persian mathematician and astronomer Al Biruni was one of the first to use a concept close to the arithmetic mean to correct astronomical observations [@al-birun2024], and he was really proud of this (@fig-al-biruni). 
+
+![View of Al Biruni's right profile](https://upload.wikimedia.org/wikipedia/commons/4/42/Al_biruni_28-02-2010.jpg){#fig-al-biruni fig-width="45%" fig-align="center"}
 
 ```{r}
 # targets::tar_load(plot_ecoregions)

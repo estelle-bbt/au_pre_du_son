@@ -54,7 +54,26 @@ div.sourceCode
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="index_files/libs/clipboard/clipboard.min.js"></script>
@@ -69,6 +88,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="index_files/libs/bootstrap/bootstrap-e1408896bd1e66d484c21809450193da.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 
 
+<link rel="stylesheet" href="styles/styles.css">
 </head>
 
 <body class="fullcontent">
@@ -105,7 +125,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 class="anchored" data-anchor-id="analyses">Analyses</h2>
 <section id="age-of-the-participants" class="level3">
 <h3 class="anchored" data-anchor-id="age-of-the-participants">Age of the participants</h3>
-<p>We visualize how the age of the participants changed between editions.</p>
+<p>We visualize how the age of the participants changed between editions using the package <a href="https://ggplot2.tidyverse.org/"><code>ggplot2</code></a> <span class="citation" data-cites="wickham2016">[<a href="#ref-wickham2016" role="doc-biblioref">1</a>]</span>. To do so, we estimated the mean and the standard deviation per edition. Note that the persian mathematician and astronomer Al Biruni was one of the first to use a concept close to the arithmetic mean to correct astronomical observations <span class="citation" data-cites="al-birun2024">[<a href="#ref-al-birun2024" role="doc-biblioref">2</a>]</span>, and he was really proud of this (<a href="#fig-al-biruni" class="quarto-xref">Figure&nbsp;1</a>).</p>
+<div id="fig-al-biruni" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" data-fig-width="45%">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-al-biruni-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="https://upload.wikimedia.org/wikipedia/commons/4/42/Al_biruni_28-02-2010.jpg" class="img-fluid quarto-figure quarto-figure-center figure-img" data-fig-width="45%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-al-biruni-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: View of Al Biruni’s right profile
+</figcaption>
+</figure>
+</div>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># targets::tar_load(plot_ecoregions)</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
@@ -114,11 +144,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="origin-of-the-participants" class="level3">
 <h3 class="anchored" data-anchor-id="origin-of-the-participants">Origin of the participants</h3>
-<p>We visualize how the age of the participants changed between editions.</p>
+<p>We visualize how the origin of the participants changed between editions.</p>
+
 </section>
 </section>
 
-</main>
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body" role="list">
+<div id="ref-wickham2016" class="csl-entry" role="listitem">
+<div class="csl-left-margin">1. </div><div class="csl-right-inline">Wickham H. 2016 <em>ggplot2</em>. Cham: Springer International Publishing. (doi:<a href="https://doi.org/10.1007/978-3-319-24277-4">10.1007/978-3-319-24277-4</a>)</div>
+</div>
+<div id="ref-al-birun2024" class="csl-entry" role="listitem">
+<div class="csl-left-margin">2. </div><div class="csl-right-inline">2024 <a href="https://fr.wikipedia.org/w/index.php?title=Al-Biruni&amp;oldid=220857188">Al-Biruni</a>. </div>
+</div>
+</div></section></div></main>
 <!-- /main column -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {

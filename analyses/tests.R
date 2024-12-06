@@ -69,7 +69,7 @@ data_with_age <- data_filter |>
 
 ## 4: longering data for presence/absence editions ----
 data_longer <- data_with_age |>
-  tidyr::pivot_longer(starts_with("edition"),names_prefix="edition",names_to="edition",values_to="presence")
+  tidyr::pivot_longer(starts_with("edition"),names_prefix="edition_",names_to="edition",values_to="presence")
 
 ## 5: get the common theme ----
 common_theme <- theme(axis.text.x = element_text(size=10,angle=45,hjust=1),

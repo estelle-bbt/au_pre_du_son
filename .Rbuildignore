@@ -5,3 +5,4 @@
 ^analyses$
 ^.*\.Rproj$
 ^\.Rproj\.user$
+^figures$
