@@ -1,4 +1,4 @@
-mean_age_per_edition <- function(data_long) {
+percent_age_class <- function(data_long) {
   
   # targets::tar_load("data_long")
   
