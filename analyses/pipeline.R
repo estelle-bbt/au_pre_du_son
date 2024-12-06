@@ -31,6 +31,12 @@ list(
   ,tar_target(plott_mape, mean_age_per_edition(data_long), format = "file")
   
   # Percent age per edition
-  #,tar_target(data_mape, percent_ageclass(data_long))
+  ,tar_target(data_mape, percent_ageclass(data_long))
+
+  # Data and plot per region
+  ,tar_target(data_region, percent_region(data_long))
+  
+  # Model and quantify effects
+  ,tar_target(sum_lm, modelit(data_region))
   
 )
