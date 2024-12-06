@@ -1,0 +1,27 @@
+---
+title: "Au Pré du Son"
+format: html
+editor: visual
+---
+
+## Goal
+
+This project aim at assessing the typical profile of the public attending the festival [**Au pré du son**](https://www.festival-aupreduson.fr/). The ultimate goal is to improve the festival communication and attract more young local people.
+
+{{< video https://www.youtube.com/watch?v=ZL5gs7tBQMs&ab_channel=ChangeonsenFestiValAuPr%C3%A9duSon >}}
+
+## Analyses
+
+### Age of the participants
+
+We visualize how the age of the participants changed between editions. 
+
+```{r}
+# targets::tar_load(plot_ecoregions)
+# 
+# plot_ecoregions
+```
+
+### Origin of the participants
+
+We visualize how the origin of the participants changed between editions.
